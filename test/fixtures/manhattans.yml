@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  recipe: MyText
+  num_cherries: 1
+  establishment: MyString
+  city: MyString
+  notes: MyText
+
+two:
+  name: MyString
+  recipe: MyText
+  num_cherries: 1
+  establishment: MyString
+  city: MyString
+  notes: MyText

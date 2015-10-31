@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @manhattan.name %>
+</p>
+
+<p>
+  <strong>Recipe:</strong>
+  <%= @manhattan.recipe %>
+</p>
+
+<p>
+  <strong>Num cherries:</strong>
+  <%= @manhattan.num_cherries %>
+</p>
+
+<p>
+  <strong>Establishment:</strong>
+  <%= @manhattan.establishment %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @manhattan.city %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @manhattan.notes %>
+</p>
+
+<%= link_to 'Edit', edit_manhattan_path(@manhattan) %> |
+<%= link_to 'Back', manhattans_path %>

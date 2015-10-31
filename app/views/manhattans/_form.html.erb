@@ -1,0 +1,41 @@
+<%= form_for(@manhattan) do |f| %>
+  <% if @manhattan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@manhattan.errors.count, "error") %> prohibited this manhattan from being saved:</h2>
+
+      <ul>
+      <% @manhattan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :recipe %><br>
+    <%= f.text_area :recipe %>
+  </div>
+  <div class="field">
+    <%= f.label :num_cherries %><br>
+    <%= f.number_field :num_cherries %>
+  </div>
+  <div class="field">
+    <%= f.label :establishment %><br>
+    <%= f.text_field :establishment %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
