@@ -62,13 +62,14 @@ class ManhattansController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_manhattan
-      @manhattan = Manhattan.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def manhattan_params
-      params.require(:manhattan).permit(:name, :recipe, :num_cherries, :establishment, :city, :notes)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_manhattan
+    @manhattan = Manhattan.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def manhattan_params
+    params.require(:manhattan).permit(:name, :recipe, :num_cherries, :establishment, :city, :notes)
+  end
 end
