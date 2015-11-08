@@ -39,17 +39,7 @@ set :unicorn_config_path, '/etc/unicorn/unicorn.conf.rb'
 namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
-      # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+      invoke 'unicorn:restart'
     end
-  end
-end
-
-after 'deploy:publishing', 'deploy:restart'
-namespace :deploy do
-  task :restart do
-    invoke 'unicorn:restart'
   end
 end
