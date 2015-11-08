@@ -60,3 +60,9 @@ server '52.91.228.79', user: 'ec2-user'
 #     auth_methods: %w(publickey password)
 #     # password: 'please use keys'
 #   }
+after 'deploy:publishing', 'deploy:restart'
+namespace :deploy do
+  task :restart do
+    invoke 'unicorn:restart'
+  end
+end
