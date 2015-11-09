@@ -48,6 +48,6 @@ group :development do
   # Use Capistrano for deployment
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
+  gem 'capistrano3-puma', '1.2.1'
   gem 'capistrano-bundler', '~> 1.1.2'
 end
