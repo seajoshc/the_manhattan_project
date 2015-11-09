@@ -20,8 +20,12 @@
     <%= f.text_area :recipe %>
   </div>
   <div class="field">
-    <%= f.label :num_cherries %><br>
+    <%= f.label :num_cherries, 'Number of Cherries' %><br>
     <%= f.number_field :num_cherries %>
+  </div>
+  <div class="field">
+    <%= f.label :rocks, 'On the Rocks?' %><br>
+    <%= f.check_box :rocks %>
   </div>
   <div class="field">
     <%= f.label :establishment %><br>

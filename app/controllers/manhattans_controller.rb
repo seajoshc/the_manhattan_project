@@ -70,6 +70,7 @@ class ManhattansController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def manhattan_params
-    params.require(:manhattan).permit(:name, :recipe, :num_cherries, :establishment, :city, :notes)
+    params.require(:manhattan).permit(:name, :recipe, :num_cherries, :rocks,
+                                      :establishment, :city, :notes)
   end
 end
