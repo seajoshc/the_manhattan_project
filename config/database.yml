@@ -9,15 +9,15 @@ default: &default
 
 development:
   <<: *default
-  database: tpm_development
+  database: tmp_development
 
 test:
   <<: *default
-  database: tpm_test
+  database: tmp_test
 
 production:
   <<: *default
-  database: tpm_production
+  database: <%= ENV['RDS_DB_NAME'] %>
   username: <%= ENV['RDS_USERNAME'] %>
   password: <%= ENV['RDS_PASSWORD'] %>
   host: <%= ENV['RDS_HOSTNAME'] %>
