@@ -18,7 +18,7 @@ test:
 production:
   <<: *default
   database: tpm_production
-  username: <%= ENV['DB_USER'] %>
-  password: <%= ENV['DB_PASSWORD'] %>
-  host: <%= ENV['DB_HOST'] %>
-  port: <%= ENV['DB_PORT'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
