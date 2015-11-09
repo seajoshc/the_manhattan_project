@@ -24,8 +24,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Unicorn as the app server
-gem 'unicorn', '5.0.0'
+# Use Puma as the app server
+gem 'puma', '2.10.2'
 
 # Bootstrap & Bootswatch
 gem 'bootstrap-sass', '~> 3.3.5'
@@ -48,6 +48,6 @@ group :development do
   # Use Capistrano for deployment
   gem 'capistrano', '~> 3.1'
   gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano3-unicorn'
+  gem 'capistrano3-puma', github: 'seuros/capistrano-puma'
   gem 'capistrano-bundler', '~> 1.1.2'
 end

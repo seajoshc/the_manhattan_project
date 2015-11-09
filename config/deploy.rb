@@ -3,8 +3,6 @@ lock '3.4.0'
 
 set :application, 'the_manhattan_project'
 set :repo_url, 'git@github.com:irlrobot/the_manhattan_project.git'
-set :unicorn_pid, '/var/run/unicorn.pid'
-set :unicorn_config_path, '/etc/unicorn/unicorn.conf.rb'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
