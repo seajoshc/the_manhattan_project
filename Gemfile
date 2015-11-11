@@ -35,6 +35,12 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
   gem 'byebug'
+
+  # Code Coverage analyzer with Simplecov
+  gem 'simplecov'
+
+  # Rspec
+  gem 'rspec-rails', '3.3.3'
 end
 
 group :development do
