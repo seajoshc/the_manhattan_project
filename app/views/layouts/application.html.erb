@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <% if notice %>
+    <p class="alert alert-success"><%= notice %></p>
+  <% end %>
+  <% if alert %>
+    <p class="alert alert-danger"><%= alert %></p>
+  <% end %>
 
-<%= yield %>
+  <p class="navbar-text pull-right">
+  <% if logged_in? %>
+    Logged in as <strong><%= @current_user.username %></strong>.
+    <%= link_to "Logout", logout_path, method: :delete, class: 'navbar-link'  %>
+  <% else %>
+    <%= link_to "Login", login_path, class: 'navbar-link'  %>
+  <% end %>
+  <img src='https://s3.amazonaws.com/aws.userdel.com/manhattan_ice.jpg' height="100" width="200">
 
+  <%= yield %>
+  <p>
+  <%= debug(params) if Rails.env.development? %>
 </body>
 </html>

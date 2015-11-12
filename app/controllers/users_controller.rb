@@ -12,6 +12,8 @@ class UsersController < ApplicationController
   def show
   end
 
+# Disable create/update/delete
+=begin
   # GET /users/new
   def new
     @user = User.new
@@ -60,7 +62,7 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+=end
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +72,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:username, :password_digest)
+    params.require(:user).permit(:username, :password, :password_confirmation)
   end
 end
