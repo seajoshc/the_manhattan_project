@@ -1,6 +1,6 @@
 class Manhattan < ActiveRecord::Base
-  after_save :expire_contact_all_cache
-  after_destroy :expire_contact_all_cache
+  after_save :expire_manhattan_all_cache
+  after_destroy :expire_manhattan_all_cache
 
   def self.all_cached
     Rails.cache.fetch('Manhattan.all') { all }
