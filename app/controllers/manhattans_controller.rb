@@ -5,7 +5,8 @@ class ManhattansController < ApplicationController
   # GET /manhattans
   # GET /manhattans.json
   def index
-    @manhattans = Manhattan.all
+    @manhattans = Manhattan.all_cached
+    @stats = Rails.cache.stats.first.last
   end
 
   # GET /manhattans/1
