@@ -35,15 +35,21 @@
       </tr>
       <tr>
         <td>Cache hits:</td>
-        <td><%= @stats['get_hits'] %></td>
+        <% @stats.each do |stat| %>
+          <td><%= stat[1]['get_hits'] %></td>
+        <% end %>
       </tr>
       <tr>
         <td>Cache misses:</td>
-        <td><%= @stats['get_misses'] %></td>
+        <% @stats.each do |stat| %>
+          <td><%= stat[1]['get_misses'] %></td>
+        <% end %>
       </tr>
       <tr>
         <td>Cache flushes:</td>
-        <td><%= @stats['cmd_flush'] %></td>
+        <% @stats.each do |stat| %>
+          <td><%= stat[1]['cmd_flush'] %></td>
+        <% end %>
       </tr>
     </table>
   <% end %>
