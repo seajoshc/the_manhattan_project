@@ -34,6 +34,10 @@ gem 'bootswatch-rails', '3.3.5'
 # bcrypt for passwords
 gem 'bcrypt', '3.1.10'
 
+# ElastiCache/memcached
+gem 'dalli', '2.7.4'
+gem 'dalli-elasticache', '0.1.2'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
