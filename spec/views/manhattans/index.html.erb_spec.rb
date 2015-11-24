@@ -10,7 +10,7 @@ RSpec.describe 'manhattans/index', type: :view do
         establishment: 'Establishment',
         city: 'City',
         notes: 'MyNotes',
-        rocks: false
+        rocks: true
       ),
       Manhattan.create!(
         name: 'Name',
@@ -19,7 +19,7 @@ RSpec.describe 'manhattans/index', type: :view do
         establishment: 'Establishment',
         city: 'City',
         notes: 'MyNotes',
-        rocks: false
+        rocks: true
       )
     ])
   end
@@ -32,6 +32,6 @@ RSpec.describe 'manhattans/index', type: :view do
     assert_select 'tr>td', text: 'Establishment'.to_s, count: 2
     assert_select 'tr>td', text: 'City'.to_s, count: 2
     assert_select 'tr>td', text: 'MyNotes'.to_s, count: 2
-    assert_select 'tr>td', text: false.to_s, count: 2
+    assert_select 'tr>td', text: true.to_s, count: 2
   end
 end

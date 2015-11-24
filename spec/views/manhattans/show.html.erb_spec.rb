@@ -9,7 +9,7 @@ RSpec.describe 'manhattans/show', type: :view do
                                       establishment: 'Establishment',
                                       city: 'City',
                                       notes: 'MyText',
-                                      rocks: false
+                                      rocks: true
     ))
   end
 
@@ -21,6 +21,6 @@ RSpec.describe 'manhattans/show', type: :view do
     expect(rendered).to match(/Establishment/)
     expect(rendered).to match(/City/)
     expect(rendered).to match(/MyText/)
-    expect(rendered).to match(/false/)
+    expect(rendered).to match(/true/)
   end
 end

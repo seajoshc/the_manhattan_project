@@ -9,7 +9,7 @@ RSpec.describe 'manhattans/edit', type: :view do
                                       establishment: 'MyString',
                                       city: 'MyString',
                                       notes: 'MyText',
-                                      rocks: false
+                                      rocks: true
     ))
   end
 

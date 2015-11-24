@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def cache_stats
-    @stats = Rails.cache.stats
+    @stats = Rails.cache.stats unless Rails.env.test?
   end # cache_stats
 
   # redirect user to login if they are not
