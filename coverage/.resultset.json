@@ -165,9 +165,11 @@
       ],
       "/Users/joshcb/repos/the_manhattan_project/config/initializers/aws.rb": [
         1,
-        1,
-        1,
-        1
+        0,
+        0,
+        0,
+        0,
+        null
       ],
       "/Users/joshcb/repos/the_manhattan_project/config/initializers/backtrace_silencers.rb": [
         null,
@@ -807,6 +809,6 @@
         null
       ]
     },
-    "timestamp": 1448400669
+    "timestamp": 1448401251
   }
 }
