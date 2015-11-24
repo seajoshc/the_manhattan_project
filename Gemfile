@@ -38,6 +38,9 @@ gem 'bcrypt', '3.1.10'
 gem 'dalli', '2.7.4'
 gem 'dalli-elasticache', '0.1.2'
 
+# AWS SDK
+gem 'aws-sdk', '2.2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
