@@ -29,6 +29,16 @@ class ManhattansController < ApplicationController
   def create
     @manhattan = Manhattan.new(manhattan_params)
 
+    unless params['manhattan']['image'].blank?
+      image = upload_image(params['manhattan']['image'])
+      if image
+        @manhattan.image = image
+      else
+        display_error('Image Upload Failed', :new)
+        return false
+      end # if
+    end # unless
+
     respond_to do |format|
       if @manhattan.save
         format.html { redirect_to @manhattan, notice: 'Manhattan was successfully created.' }
@@ -84,4 +94,26 @@ class ManhattansController < ApplicationController
 
     @manhattan.rocks? ? @manhattan.image = ice : @manhattan.image = no_ice
   end # default_image
+
+  # Upload image to s3
+  def upload_image(image)
+    # Make an object in bucket for upload
+    obj = S3_BUCKET.object("manhattans/#{image.original_filename}")
+
+    # Upload the file
+    obj.put(acl: 'public-read', body: image)
+
+    obj.public_url
+  rescue => e
+    Rails.logger.fatal e
+    return false
+  end # process_image
+
+  def display_error(err_msg, action)
+    respond_to do |format|
+      flash[:alert] = err_msg
+      format.html { render action }
+      format.json { render json: err_msg, status: :unprocessable_entity }
+    end # respond_to
+  end # display_error
 end # class
