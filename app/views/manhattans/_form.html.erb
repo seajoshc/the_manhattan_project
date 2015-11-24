@@ -1,4 +1,4 @@
-<%= form_for(@manhattan) do |f| %>
+<%= form_for(@manhattan, multipart: true) do |f| %>
   <% if @manhattan.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@manhattan.errors.count, "error") %> prohibited this manhattan from being saved:</h2>
@@ -39,6 +39,11 @@
     <%= f.label :notes %><br>
     <%= f.text_area :notes %>
   </div>
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+  <p>
   <div class="actions">
     <%= f.submit %>
   </div>
