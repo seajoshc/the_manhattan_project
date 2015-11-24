@@ -1,5 +1,5 @@
 class Manhattan < ActiveRecord::Base
-  validates :name, :recipe, :num_cherries, :rocks, :establishment, :city,
+  validates :name, :recipe, :num_cherries, :establishment, :city,
             presence: true
   after_save :expire_manhattan_all_cache
   after_destroy :expire_manhattan_all_cache
