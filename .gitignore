@@ -25,4 +25,4 @@
 /config/initializers/_local_env.rb
 
 # Code Coverage
-/coverage
+/coverage/*
