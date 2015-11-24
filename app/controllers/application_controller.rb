@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
+  def cache_stats
+    @stats = Rails.cache.stats
+  end # cache_stats
+
   # redirect user to login if they are not
   def user_logged_in?
     return if logged_in?
