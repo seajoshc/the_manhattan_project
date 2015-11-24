@@ -1,4 +1,5 @@
 class ManhattansController < ApplicationController
+  before_action :cache_stats
   before_action :set_manhattan, only: [:show, :edit, :update, :destroy]
   before_action :user_logged_in?, only: [:new, :edit, :create, :update, :destroy]
 
@@ -6,12 +7,12 @@ class ManhattansController < ApplicationController
   # GET /manhattans.json
   def index
     @manhattans = Manhattan.all_cached
-    @stats = Rails.cache.stats
   end
 
   # GET /manhattans/1
   # GET /manhattans/1.json
   def show
+    default_image if @manhattan.image.blank?
   end
 
   # GET /manhattans/new
@@ -73,6 +74,14 @@ class ManhattansController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def manhattan_params
     params.require(:manhattan).permit(:name, :recipe, :num_cherries, :rocks,
-                                      :establishment, :city, :notes)
+                                      :establishment, :city, :notes, :image)
   end
-end
+
+  # Set default pictures
+  def default_image
+    ice = 'https://s3.amazonaws.com/aws.userdel.com/manhattan_ice.jpg'
+    no_ice = 'https://s3.amazonaws.com/aws.userdel.com/manhattan_splash.jpg'
+
+    @manhattan.rocks? ? @manhattan.image = ice : @manhattan.image = no_ice
+  end # default_image
+end # class
