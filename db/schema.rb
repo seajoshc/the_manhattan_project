@@ -11,23 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_151_111_212_411) do
-  create_table 'manhattans', force: :cascade do |t|
-    t.string 'name', limit: 255
-    t.text 'recipe', limit: 65_535
-    t.integer 'num_cherries', limit: 4
-    t.string 'establishment', limit: 255
-    t.string 'city',          limit: 255
-    t.text 'notes', limit: 65_535
-    t.datetime 'created_at',                  null: false
-    t.datetime 'updated_at',                  null: false
-    t.boolean 'rocks'
+ActiveRecord::Schema.define(version: 20151124153341) do
+
+  create_table "manhattans", force: :cascade do |t|
+    t.string   "name",          limit: 255
+    t.text     "recipe",        limit: 65535
+    t.integer  "num_cherries",  limit: 4
+    t.string   "establishment", limit: 255
+    t.string   "city",          limit: 255
+    t.text     "notes",         limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "rocks"
+    t.string   "image",         limit: 255
   end
 
-  create_table 'users', force: :cascade do |t|
-    t.string 'username',        limit: 255
-    t.string 'password_digest', limit: 255
-    t.datetime 'created_at',                  null: false
-    t.datetime 'updated_at',                  null: false
+  create_table "users", force: :cascade do |t|
+    t.string   "username",        limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
 end
