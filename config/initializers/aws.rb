@@ -1,3 +1,6 @@
+p '================================='
+p Rails.env
+p '================================='
 unless Rails.env.test?
   Aws.use_bundled_cert!
   Aws.config.update(region: ENV['AWS_REGION'])
