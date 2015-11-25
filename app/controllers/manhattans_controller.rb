@@ -12,7 +12,7 @@ class ManhattansController < ApplicationController
   # GET /manhattans/1
   # GET /manhattans/1.json
   def show
-    default_image if @manhattan.image.blank?
+    default_image if @manhattan.image.blank? || @manhattan.cf_image_url.blank?
   end
 
   # GET /manhattans/new
@@ -28,11 +28,13 @@ class ManhattansController < ApplicationController
   # POST /manhattans.json
   def create
     @manhattan = Manhattan.new(manhattan_params)
+    image_name = params['manhattan']['image']
 
     unless params['manhattan']['image'].blank?
-      image = upload_image(params['manhattan']['image'])
+      image = upload_image(image_name)
       if image
         @manhattan.image = image
+        @manhattan.cf_image_url = "#{CF_URL}/#{image_name}"
       else
         display_error('Image Upload Failed', :new)
         return false
@@ -89,10 +91,14 @@ class ManhattansController < ApplicationController
 
   # Set default pictures
   def default_image
-    ice = 'https://s3.amazonaws.com/aws.userdel.com/manhattan_ice.jpg'
-    no_ice = 'https://s3.amazonaws.com/aws.userdel.com/manhattan_splash.jpg'
+    ice = "#{ENV['CF_URL']}/manhattan_ice.jpg"
+    no_ice = "#{ENV['CF_URL']}/manhattan_splash.jpg"
 
-    @manhattan.rocks? ? @manhattan.image = ice : @manhattan.image = no_ice
+    if @manhattan.rocks?
+      @manhattan.cf_image_url = ice
+    else
+      @manhattan.cf_image_url = no_ice
+    end # if
   end # default_image
 
   # Upload image to s3
@@ -103,6 +109,7 @@ class ManhattansController < ApplicationController
     # Upload the file
     obj.put(acl: 'public-read', body: image)
 
+    #
     obj.public_url
   rescue => e
     Rails.logger.fatal e
