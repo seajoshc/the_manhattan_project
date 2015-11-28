@@ -116,6 +116,7 @@ class ManhattansController < ApplicationController
     return false
   end # process_image
 
+  # Handle displaying error pages/codes
   def display_error(err_msg, action)
     respond_to do |format|
       flash[:alert] = err_msg
