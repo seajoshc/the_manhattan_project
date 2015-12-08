@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe ManhattansController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
-      expect(get: '/manhattansssss').to route_to('manhattans#index')
+      expect(get: '/manhattans').to route_to('manhattans#index')
     end
 
     it 'routes to #new' do
