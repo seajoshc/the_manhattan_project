@@ -12,10 +12,10 @@ hooks:
       timeout: 300
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start_server
+    - location: scripts/server_start
       timeout: 300
       runas: ec2-user
   ApplicationStop:
-    - location: scripts/stop_server
+    - location: scripts/server_stop
       timeout: 300
       runas: ec2-user
