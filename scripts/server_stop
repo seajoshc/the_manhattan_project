@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 sudo /etc/init.d/memcached stop
-cd /home/ec2-user/tmp/ && kill -INT $(cat tmp/pids/server.pid)
+cd /home/ec2-user/tmp/
+if [ -f "tmp/pids/server.pid" ]; then
+  kill -INT $(cat tmp/pids/server.pid)
+fi
