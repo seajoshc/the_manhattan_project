@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+memcached &
+cd /home/ec2-user/tmp/ && RAILS_ENV=development rails server
