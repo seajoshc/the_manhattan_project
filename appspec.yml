@@ -4,6 +4,10 @@ files:
   - source: /
     destination: /home/ec2-user/tmp/
 hooks:
+  ApplicationStop:
+    - location: scripts/server_stop
+      timeout: 300
+      runas: ec2-user
   BeforeInstall:
     - location: scripts/install_dependencies
       timeout: 300
@@ -13,9 +17,5 @@ hooks:
       runas: ec2-user
   ApplicationStart:
     - location: scripts/server_start
-      timeout: 300
-      runas: ec2-user
-  ApplicationStop:
-    - location: scripts/server_stop
       timeout: 300
       runas: ec2-user
