@@ -6,20 +6,20 @@ files:
 hooks:
   ApplicationStop:
     - location: scripts/server_stop
-      timeout: 300
+      timeout: 60
       runas: ec2-user
   BeforeInstall:
     - location: scripts/install_dependencies
-      timeout: 300
+      timeout: 120
       runas: root
     - location: scripts/install_dependencies_app_user
-      timeout: 300
+      timeout: 60
       runas: ec2-user
   AfterInstall:
     - location: scripts/app_setup
-      timeout: 300
+      timeout: 60
       runas: ec2-user
   ApplicationStart:
     - location: scripts/server_start
-      timeout: 300
+      timeout: 60
       runas: ec2-user
