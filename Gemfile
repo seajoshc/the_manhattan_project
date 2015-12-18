@@ -41,6 +41,9 @@ gem 'dalli-elasticache', '0.1.2'
 # AWS SDK
 gem 'aws-sdk', '2.2.3'
 
+# Dependency for AWS
+gem 'io-console', '0.4.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution
   # and get a debugger console
