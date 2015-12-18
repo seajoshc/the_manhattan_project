@@ -16,6 +16,9 @@ hooks:
       timeout: 60
       runas: ec2-user
   AfterInstall:
+    - location: scripts/set_permissions
+      timeout: 10
+      runas: root
     - location: scripts/app_setup
       timeout: 180
       runas: ec2-user
