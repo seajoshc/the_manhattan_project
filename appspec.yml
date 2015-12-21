@@ -9,10 +9,7 @@ hooks:
       timeout: 60
       runas: ec2-user
   BeforeInstall:
-    - location: scripts/install_dependencies
-      timeout: 120
-      runas: root
-    - location: scripts/install_dependencies_app_user
+    - location: scripts/setup_for_app_install
       timeout: 60
       runas: ec2-user
   AfterInstall:
