@@ -91,8 +91,8 @@ class ManhattansController < ApplicationController
 
   # Set default pictures
   def default_image
-    ice = "#{ENV['CF_URL']}/manhattan_ice.jpg"
-    no_ice = "#{ENV['CF_URL']}/manhattan_splash.jpg"
+    ice = "#{ENV['S3_CF_URL']}/manhattan_ice.jpg"
+    no_ice = "#{ENV['S3_CF_URL']}/manhattan_splash.jpg"
 
     if @manhattan.rocks?
       @manhattan.cf_image_url = ice
