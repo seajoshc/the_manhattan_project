@@ -30,3 +30,18 @@ Collecting the Manhattans of the world
   * Cloudfront Distribution for the S3 Bucket that holds images of Manhattans
 * SECRET_KEY_BASE
   * Rails secret
+
+# Docker Tips
+Instead of the Dockerfile included in the repo, you should create your own and make sure it is in .gitignore.  For example, 'Dockerfile.production'.
+## Building
+1. `docker build -f Dockerfile.production -t the_manhattan_project .`
+* `docker run --name tmp -d -p 3000:3000 the_manhattan_project`
+*  First Run Only follow these additional steps to setup the database:
+  1. connect to the container in step 2 or create a new one with `docker run -it the_manhattan_project bash`
+  * Inside the container run `rake db:create && rake db:migrate`
+  * `exit` from the container
+
+## Accessing ElastiCache Outside of Your VPC
+http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Access.Outside.html
+
+You will need to set this up before using Docker locally.
