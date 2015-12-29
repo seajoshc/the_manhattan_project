@@ -1,5 +1,4 @@
 class ManhattansController < ApplicationController
-  before_action :cache_stats
   before_action :set_manhattan, only: [:show, :edit, :update, :destroy]
   before_action :user_logged_in?, only: [:new, :edit, :create, :update, :destroy]
 

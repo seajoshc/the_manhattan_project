@@ -65,28 +65,6 @@
   </p>
 
   <%= yield %>
-
-  <div class="panel panel-default">
-    <div class="panel-footer">
-      <% if @stats %>
-        <h5>Cache Hits</h5>
-          <% @stats.each do |stat| %>
-            <%= stat[0] %> = <%= stat[1]['get_hits'] %>
-            <br>
-          <% end %>
-        <h5>Cache misses</h5>
-          <% @stats.each do |stat| %>
-            <%= stat[0] %> = <%= stat[1]['get_misses'] %>
-            <br>
-          <% end %>
-        <h5>Cache flushes</h5>
-          <% @stats.each do |stat| %>
-            <%= stat[0] %> = <%= stat[1]['cmd_flush'] %>
-            <br>
-          <% end %>
-      <% end %>
-    </div>
-  </div>
 </div>
 
   <% if Rails.env.development? %>

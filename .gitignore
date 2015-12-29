@@ -26,3 +26,6 @@
 
 # Code Coverage
 /coverage/*
+
+# Secret Dockerfiles
+Dockerfile.production
