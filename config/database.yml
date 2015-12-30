@@ -25,3 +25,6 @@ production: &production
 
 docker_dev:
   <<: *production
+
+docker_production:
+  <<: *production
