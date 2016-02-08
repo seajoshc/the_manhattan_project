@@ -1,0 +1,7 @@
+# config/solano.yml
+---
+ruby_version: ruby-2.2.3
+test_pattern:
+  - spec/**_spec.rb
+mysql:
+  version: '5.6'
