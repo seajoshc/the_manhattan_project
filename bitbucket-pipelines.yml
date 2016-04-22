@@ -1,18 +1,12 @@
 image: python:3.5.1
 
 pipelines:
-  default: # Does not appear to work currently
-    - step:
-        script:
-          - apt-get update
-          - apt-get install -y zip
-          - pip install boto3==1.3.0
   branches:
-    bb_builds:
+    master:
       - step:
           script:
-            - apt-get update
-            - apt-get install -y zip
-            - pip install boto3==1.3.0
-            - zip /tmp/artifact.zip *
-            - python beanstalk_deploy.py
+            - apt-get update # required to install zip
+            - apt-get install -y zip # required for packaging up the application
+            - pip install boto3==1.3.0 # required for beanstalk_deploy.py
+            - zip /tmp/artifact.zip * # package up the application for deployment
+            - python beanstalk_deploy.py # run the deployment script
